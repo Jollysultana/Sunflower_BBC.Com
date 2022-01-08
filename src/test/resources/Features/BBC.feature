@@ -57,11 +57,11 @@ Feature: Test functionalities BBC.Com
     Then User Lands on the Culture Page Successfully
 
 
-@Test_MoreTab
-  Scenario: Navigate to More Option Page
-    When A user is on the Home Page
-    And User clicks on the Down Arrow Icon
-    Then User Land on the More Page Successfully
+#@Test_MoreTab
+#  Scenario: Navigate to More Option Page
+#    When A user is on the Home Page
+#    And User clicks on the Down Arrow Icon
+#    Then User Land on the More Page Successfully
 
 @Test_DesignedPage
   Scenario: Step into the Designed Page inside Culture Tab
