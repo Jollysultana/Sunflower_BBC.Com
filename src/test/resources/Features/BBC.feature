@@ -51,10 +51,10 @@ Feature: Test functionalities BBC.Com
     Then User Lands on the Future Page Successfully
 
 
-@Test_CulturePage
-  Scenario: Navigate to Culture Page
-    When User clicks on the Culture Button
-    Then User Lands on the Culture Page Successfully
+#@Test_CulturePage
+#  Scenario: Navigate to Culture Page
+#    When User clicks on the Culture Button
+#    Then User Lands on the Culture Page Successfully
 
 
 @Test_MoreTab
