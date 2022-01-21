@@ -6,6 +6,10 @@ import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class DesignedCulturePage extends NavigationBar {
     private static final By BbcCultureTwice = By.xpath("//div[@id='orb-nav-links']//a[normalize-space()='Culture']");
@@ -26,12 +30,14 @@ public class DesignedCulturePage extends NavigationBar {
     }
 
     public DesignedCulturePage ClickOnDesignedButton(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(CultureDesigned));
         LOGGER.debug("User clicks on the Designed Button");
         ActOn.element(driver,CultureDesigned).click();
         return this;
     }
     public DesignedCulturePage validateDesignedTitle(){
-        LOGGER.debug("User lands on the Designed Page");
+        LOGGER.debug("User lands on the Designed Page and pick a News from there");
         boolean CheckDesignedTitleValidation = driver.findElement(DesignedTitle).isDisplayed();
         Assert.assertTrue("Designed Title is Displayed on the page",CheckDesignedTitleValidation);
         return this;

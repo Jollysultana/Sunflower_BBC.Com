@@ -1,5 +1,6 @@
 package step_definitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
@@ -19,10 +20,15 @@ public class SportPageSteps {
         new SportPage(driver).ClickOnSportButton();
     }
 
+    @And("User clicks on the All Sport Button")
+    public void ClickOnAllSportButton(){new SportPage(driver).ClickOnAllSportButton();}
 
-    @Then("^User Lands on the Sport Page Successfully$")
-    public void validateSportTitleSuccessfully(){
-        new SportPage(driver).ValidateSportTitle();
+    @And("User clicks on the BasketBall Button")
+    public void ClickOnBasketBallLink(){new SportPage(driver).ClickOnBasketBallLink();}
+
+    @Then("^User Lands on the BasketBall Page Successfully$")
+    public void ValidateBasketBallTitle(){
+        new SportPage(driver).ValidateBasketBallTitle();
     }
 }
 

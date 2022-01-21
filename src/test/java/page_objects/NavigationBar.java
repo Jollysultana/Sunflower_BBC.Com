@@ -19,6 +19,7 @@ public class NavigationBar {
     private static final By MoreTab= By.xpath("//a[normalize-space()='More']");
     private static final By BbcCultureTwice=By.xpath("//div[@id='orb-nav-links']//a[normalize-space()='Culture']");
     private static final By BbcNews2 = By.xpath("//div[@id='orb-nav-links']//a[normalize-space()='News']");
+    private static final By TypeSearchBox = By.id("orb-search-q");
 
 
     private static final Logger LOGGER = LogManager.getLogger(NavigationBar.class);
@@ -29,7 +30,7 @@ public class NavigationBar {
 
 
     public NavigationBar ClickOnBbcLogo() {
-        LOGGER.debug("Navigating to BBC Logo");
+        LOGGER.debug("Navigating to BBC Home Page");
         ActOn.element(driver, BbcLogo).click();
         return this;
     }
@@ -92,6 +93,11 @@ public class NavigationBar {
         LOGGER.debug("Navigating to BBC Tab");
         ActOn.element(driver, BbcNews2).click();
         return new WorldPage(driver);
+    }
+    public SearchBox TypeOnSearchBox(String value) {
+        LOGGER.debug("Typing on the Search Box");
+        ActOn.element(driver,TypeSearchBox ).setValue(value);
+        return new SearchBox(driver);
     }
 
 }

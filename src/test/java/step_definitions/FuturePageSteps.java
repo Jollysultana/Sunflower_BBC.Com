@@ -1,5 +1,6 @@
 package step_definitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
@@ -14,14 +15,18 @@ public class FuturePageSteps {
     WebDriver driver = Hooks.driver;
 
 
-    @When("^User clicks on the Future Button$")
-    public void ClickOnFutureButton() {
-        new FuturePage(driver).ClickOnFutureButton();
+    @When("^User clicks on the Future Link to navigate the Future Page$")
+    public void ClickOnBbcLogoButton() {
+        new FuturePage(driver).ClickOnBbcLogoButton();
     }
 
-    @Then("^User Lands on the Future Page Successfully$")
-    public void validateFutureLogoSuccessfully(){
-        new FuturePage(driver).ValidateFuturePage();
+    @And("^User clicks on the Future Planet Link and also clicks on the Load More Articles Button$")
+    public void ClickOnFuturePlanetLink(){new FuturePage(driver).ClickOnFuturePlanetLink()
+            .ClickOnLoadMoreArticlesButton();}
+
+    @Then("^User validates the Future Page Successfully$")
+    public void ValidateFuturePlanetPage(){
+        new FuturePage(driver).ValidateFuturePlanetPage();
     }
 
 

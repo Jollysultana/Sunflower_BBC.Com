@@ -1,5 +1,6 @@
 package step_definitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
@@ -13,13 +14,19 @@ public class ReelPageSteps {
     WebDriver driver = Hooks.driver;
 
 
-    @When("^User clicks on the Reel Link$")
+    @When("^User navigates to the Reel page$")
     public void ClickOnBbcReelButton(){
         new ReelPage(driver).ClickOnBbcReelLink();
     }
 
+    @And("^User clicks on the PlayList Link and clicks on the watch now Button$")
+    public void ClickOnPlayListLink(){
+        new ReelPage(driver).ClickOnPlayListLink()
+                .ClickOnWatchNowButton();
+    }
 
-    @Then("^User Lands on the Reel Page Successfully$")
+
+    @Then("^User validates the Reel Page to watch the selected news$")
     public void validateReelTitleSuccessfully(){
         new ReelPage(driver).ValidateBbcReelPage();
     }

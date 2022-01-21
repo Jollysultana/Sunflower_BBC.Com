@@ -16,7 +16,8 @@ public class LogInSteps {
     private static final By InputEmail = By.id("user-identifier-input");
     private static final By Password = By.id("password-input");
     private static final By SignInButton = By.xpath("//button[@id='submit-button']//span[contains(text(),'Sign in')]");
-
+    private static final By InputInvalidEmail = By.id("user-identifier-input");
+    private static final By InvalidPassword = By.id("password-input");
 
     private static final Logger LOGGER = LogManager.getLogger(LogInSteps.class);
     WebDriver driver = Hooks.driver;
@@ -44,6 +45,23 @@ public class LogInSteps {
         ActOn.element(driver, SignInButton).click();
         LOGGER.info("User clicked on the Sign in button");
     }
+
+    @And("^User enters Invalid username \"(.+?)\"$")
+    public void enterInvalidEmailId(String username){
+        ActOn.element(driver,InputInvalidEmail).setValue(username);
+
+    }
+    @And("^User enters Invalid password \"(.+?)\"$")
+    public void enterInvalidPassword(String password ) {
+        ActOn.element(driver, InvalidPassword).setValue(password);
+        LOGGER.info("User has entered credentials");
+    }
+    @Then("^User Failed to log in$")
+    public void ClickOnTheSignButton() {
+        ActOn.element(driver, SignInButton).click();
+        LOGGER.info("User is still on the Log In Page");
+    }
+
 
 }
 
